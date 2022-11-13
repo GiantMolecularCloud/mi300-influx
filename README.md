@@ -1,6 +1,9 @@
 # MI300 to Influx
 
 An application to periodically read statistics from Bosswerk MI300 and similar micro inverters and pipe them to InfluxDB.
+Inverters such as Bosswerk MI300, Bosswerk MI600 and Deye Sun-600G3 should be compatible but this is tested on an MI300 only.
+
+All 23 available statistics are forwarded. The most important are probably "power_current", "yield_today" and "yield_total".
 
 ## Local execution
 

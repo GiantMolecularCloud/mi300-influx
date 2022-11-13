@@ -45,7 +45,7 @@ DB_NAME = os.getenv("DB_NAME", default="solarpower")
 
 # other settings
 SAMPLE_TIME = int(os.getenv("SAMPLE_TIME", default=60))
-DEBUG = bool(os.getenv("DEBUG", default="False"))
+DEBUG = os.getenv("DEBUG", default="False") == "True"
 
 
 if DEBUG:

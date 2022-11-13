@@ -5,6 +5,8 @@ Inverters such as Bosswerk MI300, Bosswerk MI600 and Deye Sun-600G3 should be co
 
 All 23 available statistics are forwarded. The most important are probably "power_current", "yield_today" and "yield_total".
 
+Built docker images are available on [Docker Hub](https://hub.docker.com/r/giantmolecularcloud/mi300-influx).
+
 ## Local execution
 
 Install influxdb:  

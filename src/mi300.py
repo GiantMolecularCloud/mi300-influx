@@ -89,7 +89,7 @@ class MI300:
         """
 
         if dtype == str:
-            return value if value else None
+            return value.strip() if value else None
         if dtype == int:
             return int(value) if value.isdigit() else None
         if dtype == float:

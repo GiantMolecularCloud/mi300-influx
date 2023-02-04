@@ -1,6 +1,6 @@
 [project]
 name = "mi300influx"
-version = "0.1.0"
+version = "0.1.1"
 description = "An application to periodically read statistics from Bosswerk MI300 and similar micro inverters and pipe them to InfluxDB."
 authors = [{name = "@GiantMolecularCloud"}]
 license = {file = "LICENSE"}

@@ -1,3 +1,6 @@
+[![Build image and push to Docker Hub](https://github.com/GiantMolecularCloud/mi300-influx/actions/workflows/build-image.yml/badge.svg)](https://github.com/GiantMolecularCloud/mi300-influx/actions/workflows/build-image.yml)
+
+
 # MI300 to Influx
 
 An application to periodically read statistics from Bosswerk MI300 and similar micro inverters and pipe them to InfluxDB.

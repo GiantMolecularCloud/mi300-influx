@@ -53,17 +53,16 @@ if DEBUG:
 
 
 def main():
-
     mi300 = MI300(INVERTER_IP, INVERTER_USER, INVERTER_PASSWD, DEBUG)
     influx = Influx(INFLUX_IP, INFLUX_PORT, INFLUX_USER, INFLUX_PASSWD, DB_NAME, DEBUG)
 
     try:
         while True:
             try:
-
                 if mi300.is_reachable:
                     mi300.read_data()
-                    influx.write(mi300.influx_data)
+                    if mi300.influx_data is not None:
+                        influx.write(mi300.influx_data)
                 else:
                     logger.debug("Inverter is off-line.")
 

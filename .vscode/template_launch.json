@@ -1,0 +1,26 @@
+// This is a template for a VS Code launch configuration.
+// Fill in the environment variables as needed and save it as .vscode/launch.json
+{
+    "configurations": [
+        {
+            "name": "MI300 Influx Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "src/run.py",
+            "console": "integratedTerminal",
+            "env": {
+                "INVERTER_IP": "xxx.xxx.xxx.xxx",
+                "INVERTER_USER": "xxxxxxxxx",
+                "INVERTER_PASSWD": "xxxxxxxxx",
+                "INFLUX_IP": "xxx.xxx.xxx.xxx",
+                "INFLUX_PORT": "xxxx",
+                "INFLUX_USER": "xxxxxxxxx",
+                "INFLUX_PASSWD": "xxxxxxxxx",
+                "DB_NAME": "xxxxxxxxx",
+                "TIMEZONE": "Europe/Berlin",
+                "SAMPLE_TIME": "60",
+                "DEBUG": "false"
+            }
+        }
+    ]
+}

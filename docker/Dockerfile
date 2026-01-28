@@ -39,4 +39,4 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 
 COPY src /mi300influx/
 
-ENTRYPOINT ["python", "/src/run.py"]
+ENTRYPOINT ["python", "/mi300influx/run.py"]

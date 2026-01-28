@@ -17,7 +17,7 @@ class Influx:
             self.logger.setLevel("DEBUG")
 
         # create new database if necessary
-        if not self.db_name in [db["name"] for db in self.client.get_list_database()]:
+        if self.db_name not in [db["name"] for db in self.client.get_list_database()]:
             self.client.create_database(self.db_name)
             self.logger.info(f"Created new database {self.db_name} because it did not exist yet.")
 

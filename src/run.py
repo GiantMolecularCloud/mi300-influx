@@ -27,7 +27,6 @@ import time
 from influx import Influx
 from mi300 import MI300
 
-
 logging.basicConfig(level=logging.INFO, format="%(asctime)s -  %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("main")
 
@@ -52,7 +51,7 @@ if DEBUG:
     logger.setLevel("DEBUG")
 
 
-def main():
+def main() -> None:
     mi300 = MI300(INVERTER_IP, INVERTER_USER, INVERTER_PASSWD, DEBUG)
     influx = Influx(INFLUX_IP, INFLUX_PORT, INFLUX_USER, INFLUX_PASSWD, DB_NAME, DEBUG)
 

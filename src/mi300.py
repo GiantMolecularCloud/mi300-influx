@@ -1,7 +1,7 @@
 import logging
 import subprocess
 from datetime import datetime
-from typing import Any, Dict, Optional
+from typing import Any
 
 import requests
 from requests.exceptions import Timeout
@@ -19,22 +19,22 @@ class MI300:
         self.ip = ip
         self.user = user
         self.passwd = password
-        self.influx_data: Optional[list] = None
+        self.influx_data: list | None = None
         self.DEBUG = debug
 
         if self.DEBUG:
             self.logger.setLevel("DEBUG")
 
-    def is_reachable(self) -> None:
+    def is_reachable(self) -> bool:
         """
         Ping the inverter to test if it is online.
         The inverter shuts down when the panel output is too low to save power.
         """
 
         command = ["ping", "-c", "1", self.ip]
-        self.is_reachable = subprocess.call(command) == 0
+        self._is_reachable = subprocess.call(command) == 0
 
-        return self.is_reachable
+        return self._is_reachable
 
     def query(self) -> None:
         """
@@ -87,7 +87,7 @@ class MI300:
         finally:
             request.close()
 
-    def _value_or_none(self, value: Any, dtype: type = str) -> Optional[int | float | bool]:
+    def _value_or_none(self, value: Any, dtype: type = str) -> str | int | float | bool | None:
         """
         Return None if the value is an empty string or otherwise cast to the given type.
         """
@@ -140,7 +140,7 @@ class MI300:
                     "remote_server_B_connected",
                     "remote_server_C_connected",
                 ]
-                measures = {k: None for k in measure_names}
+                measures = dict.fromkeys(measure_names, None)
                 measures["request_status_code"] = self.request_status_code
                 measures["request_reason"] = self.request_reason
                 measures["request_elapsed"] = self.request_elapsed.total_seconds()

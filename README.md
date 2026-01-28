@@ -12,7 +12,7 @@ Built docker images are available on [Docker Hub](https://hub.docker.com/r/giant
 
 ## Local execution
 
-Install influxdb:  
+Install influxdb:
 `pip install -r docker/requirements.txt`
 
 Set enviroment variables:
@@ -26,12 +26,12 @@ export INFLUX_USER='user'
 export INFLUX_PASSWD='passwd'
 ```
 
-Run the app:  
+Run the app:
 `python src/run.py`
 
 ## docker
 
-Build the image:  
+Build the image:
 `docker build -t mi300influx:0.1 -f docker/Dockerfile .`
 
 Run the container:

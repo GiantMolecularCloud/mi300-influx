@@ -31,7 +31,7 @@ class MI300:
         The inverter shuts down when the panel output is too low to save power.
         """
 
-        command = ["ping", "-c", "1", self.ip]
+        command = ["ping", "-n", "-c", "1", "-W", "1", "-w", "2", self.ip]
         self._is_reachable = subprocess.call(command) == 0
 
         return self._is_reachable

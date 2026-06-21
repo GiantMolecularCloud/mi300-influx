@@ -32,6 +32,10 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 
 FROM python:3.13-slim as runtime
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends iputils-ping \
+    && rm -rf /var/lib/apt/lists/*
+
 ENV VIRTUAL_ENV=/mi300influx/.venv \
     PATH="/mi300influx/.venv/bin:$PATH"
 

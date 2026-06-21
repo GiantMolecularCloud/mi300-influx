@@ -53,8 +53,9 @@ class MI300:
         tries = 0
         while tries < 5:
             self.query()
-            if self.influx_data[0]["fields"]["yield_total"] is not None:
+            if self.influx_data and self.influx_data[0]["fields"]["yield_total"] is not None:
                 break
+            tries += 1
 
     def get_html(self) -> None:
         """
@@ -84,7 +85,6 @@ class MI300:
             else:
                 self.request_html = None
                 self.logger.debug(f"Request failed. Status code: {request.status_code}. Reason: {request.reason}")
-        finally:
             request.close()
 
     def _value_or_none(self, value: Any, dtype: type = str) -> str | int | float | bool | None:

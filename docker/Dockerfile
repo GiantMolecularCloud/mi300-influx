@@ -10,7 +10,7 @@
 
 FROM python:3.13-slim as builder
 
-ARG POETRY_VERSION=2.2
+ARG POETRY_VERSION=2.4
 
 RUN pip install "poetry==${POETRY_VERSION}"
 

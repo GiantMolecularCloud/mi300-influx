@@ -58,7 +58,7 @@ def main() -> None:
     try:
         while True:
             try:
-                if mi300.is_reachable:
+                if mi300.is_reachable():
                     mi300.read_data()
                     if mi300.influx_data is not None:
                         influx.write(mi300.influx_data)
